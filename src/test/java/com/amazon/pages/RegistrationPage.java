@@ -13,25 +13,25 @@ public class RegistrationPage {
 	private WebDriver driver;
 	
 	@FindBy(id = "ap_customer_name")
-	WebElement ap_customer_name;
+	private WebElement ap_customer_name;
 	
 	@FindBy(id = "ap_email")
-	WebElement ap_email;
+	private WebElement ap_email;
 	
 	@FindBy(id = "ap_password")
-	WebElement ap_password;
+	private WebElement ap_password;
 	
 	@FindBy(id = "ap_password_check")
-	WebElement ap_password_check;
+	private WebElement ap_password_check;
 	
 	@FindBy(id = "continue")
-	WebElement continueButton;
+	private WebElement continueButton;
 	
 	@FindBy(className = "a-spacing-small")
-	WebElement heading;
+	private WebElement heading;
 	
 	@FindBy(xpath="//div[@role='alert' and not(contains(@style,'display: none'))]/div/div[@class='a-alert-content']")
-	List<WebElement> alertMessages;
+	private List<WebElement> alertMessages;
 	
 	public RegistrationPage(WebDriver driver) {
 		this.driver = driver;

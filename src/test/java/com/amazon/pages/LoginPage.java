@@ -13,22 +13,28 @@ public class LoginPage {
 	private WebDriver driver;
 
 	@FindBy(id = "ap_email")
-	WebElement ap_email;
+	private WebElement ap_email;
+	
+	@FindBy(id = "ap_password")
+	private WebElement ap_password;
 
 	@FindBy(id = "continue")
-	WebElement continueButton;
-
+	private WebElement continueButton;
+	
+	@FindBy(id = "signInSubmit")
+	private WebElement signInSubmitButton;
+	
 	@FindBy(id = "createAccountSubmit")
-	WebElement createAccountSubmitButton;
+	private WebElement createAccountSubmitButton;
 
 	@FindBy(className = "a-spacing-small")
-	WebElement heading;
+	private WebElement heading;
 	
 	@FindBy(xpath = "//div[@id='auth-error-message-box' and not(contains(@style,'display: none'))]//span[@class='a-list-item']")
-	WebElement errorMessageBox;
+	private WebElement errorMessageBox;
 	
 	@FindBy(xpath="//div[@role='alert' and not(contains(@style,'display: none'))]/div/div[@class='a-alert-content']")
-	WebElement emailMissingAlert;
+	private WebElement alertMessage;
 	
 	
 	public LoginPage(WebDriver driver) {
@@ -42,6 +48,7 @@ public class LoginPage {
 		
 		return this;
 	}
+	
 	public LoginPage setAp_email(String email, boolean isSubmit) {
 		setAp_email(email);
 		if (isSubmit) {
@@ -50,22 +57,49 @@ public class LoginPage {
 		
 		return this;
 	}
+	
+	public HomePage setAp_password(String password) {
+		ap_password.clear();
+		ap_password.sendKeys(password);
+		
+		return new HomePage(driver);
+	}
+	
+	public HomePage setAp_password(String password, boolean isSubmit) {
+		setAp_password(password);
+		if (isSubmit) {
+			clickSignIn();
+		}
+		
+		return new HomePage(driver);
+	}
 
 	public String getErrorMessage() {
 		return errorMessageBox.getText();
 	}
-	public String getEmailMissingAlertMessage() {
-		return emailMissingAlert.getText();
+	
+	public String getAlertMessage() {
+		return alertMessage.getText();
 	}
 	
 	public void clickContinue() {
 		continueButton.click();
 	}
+	
+	public void clickSignIn() {
+		signInSubmitButton.click();
+	}
+	
 	public RegistrationPage clickCreateAccount() {
 		createAccountSubmitButton.click();
 		return new RegistrationPage(driver);
 	}
+	
+	public boolean isMandatoryFieldsDisplayed() {
+		return ap_email.isDisplayed() && continueButton.isDisplayed();
+	}
+	
 	public boolean isPageOpened() {
-		return heading.getText().toString().equals("Sign-In") && ap_email.isDisplayed() && continueButton.isDisplayed();
+		return heading.getText().toString().equals("Sign-In");
 	}
 }

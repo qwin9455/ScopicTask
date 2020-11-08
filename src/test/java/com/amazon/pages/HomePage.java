@@ -1,6 +1,5 @@
 package com.amazon.pages;
 
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,10 +9,10 @@ public class HomePage {
 
 	private WebDriver driver;
 	@FindBy(id = "nav-logo-sprites")
-	WebElement amazonLogo;
+	private WebElement amazonLogo;
 	
 	@FindBy(id = "nav-link-accountList")
-	WebElement signIn;
+	private WebElement signIn;
 
 	public HomePage(WebDriver driver) {
 		this.driver = driver;

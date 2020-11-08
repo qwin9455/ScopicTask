@@ -13,10 +13,10 @@ public class OtpPage {
 	private WebDriver driver;
 
 	@FindBy(name = "code")
-	WebElement otp;
+	private WebElement otp;
 	
 	@FindBy(id = "a-autoid-0-announce")
-	WebElement continueButton;
+	private WebElement continueButton;
 	
 	
 	
