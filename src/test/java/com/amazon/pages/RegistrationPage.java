@@ -44,6 +44,7 @@ public class RegistrationPage {
 		
 		return this;
 	}
+	
 	public RegistrationPage setAp_customer_name(String name, boolean isSubmit) {
 		setAp_customer_name(name);
 		if (isSubmit)
@@ -58,6 +59,7 @@ public class RegistrationPage {
 		
 		return this;
 	}
+	
 	public RegistrationPage setAp_email(String email, boolean isSubmit) {
 		setAp_email(email);
 		if (isSubmit)
@@ -72,6 +74,7 @@ public class RegistrationPage {
 		
 		return this;
 	}
+	
 	public RegistrationPage setAp_password(String password, boolean isSubmit) {
 		setAp_password(password);
 		if (isSubmit)
@@ -86,6 +89,7 @@ public class RegistrationPage {
 		
 		return this;
 	}
+	
 	public RegistrationPage setAp_password_check(String passwordConfirm, boolean isSubmit) {
 		setAp_password_check(passwordConfirm);
 		if (isSubmit)
@@ -102,8 +106,13 @@ public class RegistrationPage {
 		return alertMsgs;
 	}
 
-	public void clickContinue() {
+	public OtpPage clickContinue() {
 		continueButton.click();
+		return new OtpPage(driver);
+	}
+	
+	public boolean isMandatoryFieldsDisplayed() {
+		return ap_customer_name.isDisplayed() && ap_email.isDisplayed() && ap_password.isDisplayed() && ap_password_check.isDisplayed() && continueButton.isDisplayed();
 	}
 	
 	public boolean isPageOpened() {

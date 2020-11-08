@@ -45,7 +45,7 @@ public class DataProviderClass {
 	@DataProvider(name = "reg-valid")
 	public static Object[][] getValidRegistrationData() {
 		return new Object[][] { 
-			{ "Myka Tolentino", "m@g.com", "password123", "password123", "You indicated you are a new customer, but an account already exists with the e-mail m@g.com" }
+			{ "Myka Tolentino", "sample1234@ggg.com", "password123", "password123" }
 		};
 	}
 }
